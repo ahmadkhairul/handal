@@ -1,5 +1,5 @@
 const data = {
-  id: "order-001",
+  orderNumber: "order-001",
   from: "Singapura",
   to: "Indonesia",
   ETA: "20-04-2020",

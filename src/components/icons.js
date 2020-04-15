@@ -1,9 +1,10 @@
 import React from "react";
 
-const Icon = ({ src }) => {
+const Icon = ({ onClick, src, transform }) => {
   return (
     <img
-      style={{ marginLeft: "5px" }}
+      onClick={onClick}
+      style={{ marginLeft: "5px", transform: transform }}
       src={src}
       alt="handal-icons"
       width="10px"
