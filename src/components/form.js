@@ -1,32 +1,13 @@
 import React from "react";
 
-const style = {
-  font: {
-    marginBottom: "0.5em",
-    lineHeight: "16px"
-  },
-  input: {
-    height: "30px",
-    width: "100%",
-    background: "#FFFFFF",
-    border: "1px solid #CCCCCC",
-    borderRadius: "1px",
-    paddingLeft: "0.5em"
-  }
-};
-
 export const Label = ({ children }) => {
-  return (
-    <p style={style.font} className="default">
-      {children}
-    </p>
-  );
+  return <p className="form-label">{children}</p>;
 };
 
 export const Input = ({ type, name, value }) => {
   return (
     <p>
-      <input style={style.input} type={type} name={name} value={value} />
+      <input className="form-input" type={type} name={name} value={value} />
     </p>
   );
 };
@@ -34,7 +15,7 @@ export const Input = ({ type, name, value }) => {
 export const Select = ({ name, children }) => {
   return (
     <p>
-      <select style={style.input} name={name}>
+      <select className="form-input" name={name}>
         {children}
       </select>
     </p>

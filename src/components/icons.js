@@ -1,14 +1,31 @@
 import React from "react";
 
-const Icon = ({ onClick, src, transform }) => {
+const Icon = ({
+  onClick,
+  src,
+  transform,
+  size,
+  border,
+  radius,
+  bgcolor,
+  padding,
+  margin
+}) => {
   return (
     <img
       onClick={onClick}
-      style={{ marginLeft: "5px", transform: transform }}
+      style={{
+        transform: transform,
+        border: border,
+        borderRadius: radius,
+        backgroundColor: bgcolor,
+        padding: padding,
+        margin: margin
+      }}
       src={src}
       alt="handal-icons"
-      width="10px"
-      height="10px"
+      width={size}
+      height={size}
     />
   );
 };
