@@ -192,10 +192,21 @@
 }
 
 .list-detail {
+  position: relative;
   line-height: 2.5em;
   color: #3597ff;
+  left: 5px;
 }
 
+.list-label-2 {
+  size: 1.4em;
+  color: #9b9b9b;
+}
+
+.list-detail-2 {
+  size: 1.4em;
+  color: #24d89b;
+}
 /* GRID */
 
 * {
