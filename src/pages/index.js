@@ -16,9 +16,9 @@ import Filter from "./filter";
 import DetailOrder from "./detailOrder";
 
 class App extends Component {
-  componentDidMount() {
-    this.props.getOrder();
-  }
+  componentDidMount = async () => {
+    await this.props.getOrder();
+  };
 
   constructor(props) {
     super(props);
@@ -30,82 +30,87 @@ class App extends Component {
   render() {
     const { data, loading, error } = this.props.order;
 
-    if (loading) return <h1>Loading...</h1>;
+    if (loading === true) return <h1>Loading...</h1>;
 
     if (error) return <h1>Unknown Error Occured</h1>;
 
-    console.log(data);
-    if (data && loading === false) {
-      return (
-        <>
-          <Header />
+    return (
+      <>
+        <Header />
+        <Container name="root-container">
           <Filter />
-          {data.map((item, index) => {
-            return (
-              <Container key={index} index={index}>
-                <Box variant="box-heavy block">
-                  <Row>
-                    <Col name="col-1 col-s-4">
-                      <Font variant="list-label">Asal</Font> <br />
-                      <Font variant="list-item">{item.portFrom}</Font> <br />
-                      <Font variant="list-label">{item.from}</Font> <br />
-                      <p style={{ marginBottom: "0.5em" }}></p>
-                    </Col>
-                    <Col name="col-1 col-s-4">
-                      <Icon
-                        src="./arrow.svg"
-                        size="30px"
-                        margin="15px 0px 0px 10%"
-                      />
-                    </Col>
-                    <Col name="col-1 col-s-4">
-                      <Font variant="list-label">Tujuan</Font> <br />
-                      <Font variant="list-item">{item.portTo}</Font> <br />
-                      <Font variant="list-label">{item.to}</Font>
-                    </Col>
-                    <Col name="col-2 col-s-4">
-                      <Font variant="list-label">No Pemesanan</Font> <br />
-                      <Font variant="list-item-2">{item.orderNumber}</Font>
-                      <p style={{ marginBottom: "1em" }}></p>
-                      <Font variant="list-label">Tipe | Kargo | Incoterms</Font>
-                      <br />
-                      <Font variant="list-item-2">
-                        {item.type} | {item.cargoType} | {item.incoterms}
-                      </Font>
-                    </Col>
-                    <Col name="col-1 col-s-4">
-                      <Font variant="list-label">ETA</Font> <br />
-                      <Font variant="list-item-2">{item.ETA}</Font>
-                      <p style={{ marginBottom: "1em" }}></p>
-                      <Font variant="list-label">Tipe Kontainer</Font> <br />
-                      <Font variant="list-item-2">{item.containerType}</Font>
-                    </Col>
-                    <Col name="col-1 col-s-4">
-                      <Font variant="list-label">Status</Font> <br />
-                      <Font variant="list-item">{item.status}</Font>
-                      <p style={{ marginBottom: "1.35em" }}></p>
-                      <Button variant="success">Quotation</Button>
-                    </Col>
-                    <Col name="col-1 col-s-4">
-                      <Icon
-                        src="./close.svg"
-                        size="20px"
-                        border="1px solid #CCCCCC"
-                        radius="50%"
-                        bgcolor="#CCCCCC"
-                        padding="3px"
-                        margin="25px 40% 0px 40%"
-                      />
-                    </Col>
-                  </Row>
-                  <DetailOrder />
-                </Box>
-              </Container>
-            );
-          })}
-        </>
-      );
-    }
+          {data &&
+            data.map((item, index) => {
+              return (
+                <Container key={index} index={index}>
+                  <Box variant="box-heavy block spacing">
+                    <Row>
+                      <Col name="col-1 col-s-4">
+                        <Font variant="list-label">Asal</Font> <br />
+                        <Font variant="list-item">{item.portFrom}</Font> <br />
+                        <Font variant="list-label">{item.from}</Font> <br />
+                        <p style={{ marginBottom: "0.5em" }}></p>
+                      </Col>
+                      <Col name="col-1 col-s-4">
+                        <Icon
+                          src="./icons/arrow.svg"
+                          width="30px"
+                          style={{ margin: "15px 0px 0px 10%" }}
+                        />
+                      </Col>
+                      <Col name="col-1 col-s-4">
+                        <Font variant="list-label">Tujuan</Font> <br />
+                        <Font variant="list-item">{item.portTo}</Font> <br />
+                        <Font variant="list-label">{item.to}</Font>
+                      </Col>
+                      <Col name="col-2 col-s-4">
+                        <Font variant="list-label">No Pemesanan</Font> <br />
+                        <Font variant="list-item-2">{item.orderNumber}</Font>
+                        <p style={{ marginBottom: "1em" }}></p>
+                        <Font variant="list-label">
+                          Tipe | Kargo | Incoterms
+                        </Font>
+                        <br />
+                        <Font variant="list-item-2">
+                          {item.type} | {item.cargoType} | {item.incoterms}
+                        </Font>
+                      </Col>
+                      <Col name="col-1 col-s-4">
+                        <Font variant="list-label">ETA</Font> <br />
+                        <Font variant="list-item-2">{item.ETA}</Font>
+                        <p style={{ marginBottom: "1em" }}></p>
+                        <Font variant="list-label">Tipe Kontainer</Font> <br />
+                        <Font variant="list-item-2">{item.containerType}</Font>
+                      </Col>
+                      <Col name="col-1 col-s-4">
+                        <Font variant="list-label">Status</Font> <br />
+                        <Font variant="list-item">{item.status}</Font>
+                        <p style={{ marginBottom: "1.35em" }}></p>
+                        <Button variant="success">Quotation</Button>
+                      </Col>
+                      <Col name="col-1 col-s-4">
+                        <Icon
+                          src="./icons/close.svg"
+                          width="20px"
+                          height="20px"
+                          style={{
+                            border: "1px solid #CCCCCC",
+                            borderRadius: "50%",
+                            backgroundColor: "#CCCCCC",
+                            padding: "3px",
+                            margin: "30% 0 0 85%"
+                          }}
+                        />
+                      </Col>
+                    </Row>
+                    <DetailOrder data={item} />
+                  </Box>
+                </Container>
+              );
+            })}
+        </Container>
+      </>
+    );
   }
 }
 

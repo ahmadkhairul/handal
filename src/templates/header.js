@@ -9,7 +9,7 @@ class App extends Component {
       <Container name="header">
         <div className="flex-true">
           <Font variant="brand">HANDAL</Font>
-          <Avatar name="/profile.svg" size="45px" alt="profile" />
+          <Avatar name="/icons/profile.svg" size="45px" alt="profile" />
         </div>
       </Container>
     );

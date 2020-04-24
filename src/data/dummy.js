@@ -21,16 +21,16 @@ export const data = [
         nikExport: 3,
         npwp: 1,
         ktp: 2,
-        licence: 3,
-        sertificate: 2,
+        lisence: 3,
+        certificate: 2,
         others: 3,
         invoice: 1,
         packing: 1
       }
     ],
-    Total: [
+    total: [
       {
-        total: 20,
+        amount: 20,
         weight: 100,
         volume: 100,
         price: 200000
@@ -100,16 +100,16 @@ export const data = [
         nikExport: 3,
         npwp: 1,
         ktp: 2,
-        licence: 3,
-        sertificate: 2,
+        lisence: 3,
+        certificate: 2,
         others: 3,
         invoice: 1,
         packing: 1
       }
     ],
-    Total: [
+    total: [
       {
-        total: 20,
+        amount: 20,
         weight: 100,
         volume: 100,
         price: 200000
@@ -179,16 +179,16 @@ export const data = [
         nikExport: 3,
         npwp: 1,
         ktp: 2,
-        licence: 3,
-        sertificate: 2,
+        lisence: 3,
+        certificate: 2,
         others: 3,
         invoice: 1,
         packing: 1
       }
     ],
-    Total: [
+    total: [
       {
-        total: 20,
+        amount: 20,
         weight: 100,
         volume: 100,
         price: 200000

@@ -30,8 +30,8 @@ class Filter extends Component {
                       menu: false
                     });
                   }}
-                  src="./direction.svg"
-                  margin="0em 0em 0em 0.5em"
+                  src="./icons/direction.svg"
+                  style={{ margin: "0em 0em 0em 0.5em" }}
                 />
               ) : (
                 <Icon
@@ -40,9 +40,11 @@ class Filter extends Component {
                       menu: true
                     });
                   }}
-                  src="./direction.svg"
-                  transform="rotate(180deg)"
-                  margin="0em 0em 0em 0.5em"
+                  src="./icons/direction.svg"
+                  style={{
+                    margin: "0em 0em 0em 0.5em",
+                    transform: "rotate(180deg)"
+                  }}
                 />
               )}
             </Font>
@@ -51,7 +53,7 @@ class Filter extends Component {
         {this.state.menu === true ? (
           <Animation name="menu-show" duration="1s">
             <Container>
-              <Box variant="box-heavy block">
+              <Box variant="box-heavy block spacing">
                 <Row>
                   <Col name="col-2 col-s-4">
                     <Label>No. Pemesanan</Label>
@@ -144,7 +146,7 @@ class Filter extends Component {
         ) : (
           <Animation name="menu-hide" duration="1s">
             <Container>
-              <Box variant="box-heavy flex">
+              <Box variant="box-heavy flex spacing">
                 <Col name="col-s-4">
                   <Font variant="filter">Filter (9)</Font>
                 </Col>
@@ -164,7 +166,7 @@ class Filter extends Component {
                   <Font variant="filter-item">Status : Pilih Forwarder</Font>
                 </Col>
                 <Col name="col-s-4">
-                  <Icon src="./direction2.svg" />
+                  <Icon src="./icons/direction2.svg" />
                 </Col>
               </Box>
             </Container>
