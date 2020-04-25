@@ -1,4 +1,4 @@
-export const data = [
+export const dummy = [
   {
     orderNumber: "order-001",
     from: "Singapura",

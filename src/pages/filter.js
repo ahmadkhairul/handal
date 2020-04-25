@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
 import Font from "../components/typography";
 import Icon from "../components/icons";
 import Box from "../components/box";
@@ -6,8 +8,8 @@ import Button from "../components/button";
 import Animation from "../components/animation";
 import { Label, Input, Select } from "../components/form";
 import { Container, Col, Row } from "../components/container";
-
 import Filt from "../pages/filt";
+import { filterOrder, getOrder } from "../_actions/order";
 
 class Filter extends Component {
   constructor(props) {
@@ -39,11 +41,9 @@ class Filter extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-
-    // console.log(e.target.name, e.target.value);
   };
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
     this.setState({
       filter: [
@@ -86,6 +86,18 @@ class Filter extends Component {
       ]
     });
     this.toggleAction();
+    const filtered = [
+      this.state.orderNumber,
+      this.state.from,
+      this.state.to,
+      this.state.ETA,
+      this.state.status,
+      this.state.type,
+      this.state.cargoType,
+      this.state.incoterms,
+      this.state.containerType
+    ];
+    this.props.filterOrder(filtered);
   };
 
   handleReset = e => {
@@ -103,6 +115,7 @@ class Filter extends Component {
       filter: []
     });
     this.toggleAction();
+    this.props.getOrder();
   };
 
   render() {
@@ -267,4 +280,17 @@ class Filter extends Component {
   }
 }
 
-export default Filter;
+const mapStateToProps = state => {
+  return {
+    // order: state.order
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    filterOrder: filtered => dispatch(filterOrder(filtered)),
+    getOrder: () => dispatch(getOrder())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);
