@@ -45,20 +45,20 @@ class App extends Component {
                 <Container key={index} index={index}>
                   <Box variant="box-heavy block spacing">
                     <Row>
-                      <Col name="col-1 col-s-4">
+                      <Col name="col-1 col-s-1">
                         <Font variant="list-label">Asal</Font> <br />
                         <Font variant="list-item">{item.portFrom}</Font> <br />
                         <Font variant="list-label">{item.from}</Font> <br />
                         <p style={{ marginBottom: "0.5em" }}></p>
                       </Col>
-                      <Col name="col-1 col-s-4">
+                      <Col name="col-1 col-s-1">
                         <Icon
                           src="./icons/arrow.svg"
                           width="30px"
                           style={{ margin: "15px 0px 0px 10%" }}
                         />
                       </Col>
-                      <Col name="col-1 col-s-4">
+                      <Col name="col-1 col-s-1">
                         <Font variant="list-label">Tujuan</Font> <br />
                         <Font variant="list-item">{item.portTo}</Font> <br />
                         <Font variant="list-label">{item.to}</Font>
@@ -82,13 +82,13 @@ class App extends Component {
                         <Font variant="list-label">Tipe Kontainer</Font> <br />
                         <Font variant="list-item-2">{item.containerType}</Font>
                       </Col>
-                      <Col name="col-1 col-s-4">
+                      <Col name="col-1 col-s-2">
                         <Font variant="list-label">Status</Font> <br />
                         <Font variant="list-item">{item.status}</Font>
                         <p style={{ marginBottom: "1.35em" }}></p>
                         <Button variant="success">Quotation</Button>
                       </Col>
-                      <Col name="col-1 col-s-4">
+                      <Col name="col-1 col-s-2">
                         <Icon
                           src="./icons/close.svg"
                           width="20px"
@@ -98,7 +98,7 @@ class App extends Component {
                             borderRadius: "50%",
                             backgroundColor: "#CCCCCC",
                             padding: "3px",
-                            margin: "30% 0 0 85%"
+                            margin: "20px 0 0 20%"
                           }}
                         />
                       </Col>

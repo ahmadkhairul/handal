@@ -9,3 +9,12 @@ export const getOrder = () => {
     }
   };
 };
+
+export const filterOrder = filter => {
+  return {
+    type: FILTER_ORDER,
+    payload: async () => {
+      // let b = words.filter(item => item.a.indexOf('pray') > -1 && item.b.indexOf('mit') > -1);
+    }
+  };
+};

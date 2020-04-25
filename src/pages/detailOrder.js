@@ -14,37 +14,26 @@ class App extends Component {
     };
   }
 
+  toggleAction = () => {
+    this.state.detail === true
+      ? this.setState({ detail: false })
+      : this.setState({ detail: true });
+  };
+
   render() {
     return (
       <>
         <Font variant="list-detail">
           Detail Pemesanan
-          {this.state.detail === false ? (
-            <Icon
-              onClick={() => {
-                this.setState({
-                  detail: true
-                });
-              }}
-              src="./icons/direction3.svg"
-              style={{ margin: "0em 0em 0em 0.5em" }}
-            />
-          ) : (
-            <Icon
-              onClick={() => {
-                this.setState({
-                  detail: false
-                });
-              }}
-              src="./icons/direction3.svg"
-              style={{
-                margin: "0em 0em 0em 0.5em",
-                transform: "rotate(180deg)"
-              }}
-            />
-          )}
+          <Icon
+            onClick={this.toggleAction}
+            src="./icons/direction3.svg"
+            style={{
+              margin: "0em 0em 0em 0.5em",
+              transform: this.state.menu ? "rotate(180deg)" : ""
+            }}
+          />
         </Font>
-
         {this.state.detail === true ? (
           <Animation name="animation-detail" duration="1s">
             <Col>
@@ -128,66 +117,68 @@ class App extends Component {
                   return (
                     <div className="table-wrapper">
                       <table>
-                        <tr>
-                          <td
-                            rowSpan="4"
-                            style={{
-                              borderRight: "1px solid #cccccc",
-                              textAlign: "center",
-                              verticalAlign: "middle",
-                              width: "10%"
-                            }}
-                          >
-                            <Font variant="list-label-3">{index + 1}</Font>
-                          </td>
-                          <td colSpan="4">
-                            <Font variant="list-label-2">{item.name}</Font>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <Font variant="list-label-3">HS Code</Font>
-                          </td>
-                          <td>
-                            <Font variant="list-label-2">{item.HSCode}</Font>
-                          </td>
-                          <td>
-                            <Font variant="list-label-3">Jumlah</Font>
-                          </td>
-                          <td>
-                            <Font variant="list-label-2">{item.total}</Font>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <Font variant="list-label-3">Berat</Font>
-                          </td>
-                          <td>
-                            <Font variant="list-label-2">{item.weight}</Font>
-                          </td>
-                          <td>
-                            <Font variant="list-label-3">Harga Barang</Font>
-                          </td>
-                          <td>
-                            <Font variant="list-label-2">{item.price}</Font>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <Font variant="list-label-3">Volume</Font>
-                          </td>
-                          <td>
-                            <Font variant="list-label-2">{item.volume}</Font>
-                          </td>
-                          <td>
-                            <Font variant="list-label-3">Total Harga</Font>
-                          </td>
-                          <td>
-                            <Font variant="list-label-2">
-                              {item.totalPrice}
-                            </Font>
-                          </td>
-                        </tr>
+                        <tbody>
+                          <tr>
+                            <td
+                              rowSpan="4"
+                              style={{
+                                borderRight: "1px solid #cccccc",
+                                textAlign: "center",
+                                verticalAlign: "middle",
+                                width: "10%"
+                              }}
+                            >
+                              <Font variant="list-label-3">{index + 1}</Font>
+                            </td>
+                            <td colSpan="4">
+                              <Font variant="list-label-2">{item.name}</Font>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <Font variant="list-label-3">HS Code</Font>
+                            </td>
+                            <td>
+                              <Font variant="list-label-2">{item.HSCode}</Font>
+                            </td>
+                            <td>
+                              <Font variant="list-label-3">Jumlah</Font>
+                            </td>
+                            <td>
+                              <Font variant="list-label-2">{item.total}</Font>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <Font variant="list-label-3">Berat</Font>
+                            </td>
+                            <td>
+                              <Font variant="list-label-2">{item.weight}</Font>
+                            </td>
+                            <td>
+                              <Font variant="list-label-3">Harga Barang</Font>
+                            </td>
+                            <td>
+                              <Font variant="list-label-2">{item.price}</Font>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <Font variant="list-label-3">Volume</Font>
+                            </td>
+                            <td>
+                              <Font variant="list-label-2">{item.volume}</Font>
+                            </td>
+                            <td>
+                              <Font variant="list-label-3">Total Harga</Font>
+                            </td>
+                            <td>
+                              <Font variant="list-label-2">
+                                {item.totalPrice}
+                              </Font>
+                            </td>
+                          </tr>
+                        </tbody>
                       </table>
                     </div>
                   );

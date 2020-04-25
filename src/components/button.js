@@ -1,8 +1,8 @@
 import React from "react";
-const Button = ({ variant, onClick, children }) => {
+const Button = ({ variant, onClick, children, type }) => {
   if (variant) {
     return (
-      <button onClick={onClick} className={variant}>
+      <button onClick={onClick} className={variant} type={type}>
         {children}
       </button>
     );
