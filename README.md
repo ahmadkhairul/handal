@@ -4,9 +4,7 @@ HANDAL is application for handling shipping system
 
 ## demo
 
-```
 https://handal.netlify.app/
-```
 
 ## Table of Contents
 
