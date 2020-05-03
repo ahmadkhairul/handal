@@ -1,10 +1,14 @@
 import React from "react";
 
-const Typography = ({ variant, children }) => {
+const Typography = ({ variant, children, onClick }) => {
   if (variant) {
-    return <span className={variant}>{children}</span>;
+    return (
+      <span onClick={onClick} className={variant}>
+        {children}
+      </span>
+    );
   } else {
-    return <span>{children}</span>;
+    return <span onClick={onClick}>{children}</span>;
   }
 };
 

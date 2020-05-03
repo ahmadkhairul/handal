@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Font from "../components/typography";
+import Typography from "../components/typography";
 import { Col, Row } from "../components/container";
 
 class Filt extends Component {
@@ -19,17 +19,16 @@ class Filt extends Component {
   };
 
   render() {
-    console.log("Jumlah ", this.state.count);
     return (
       <>
-        <Font variant="filter">Filter ({this.state.count})</Font>
+        <Typography variant="filter">Filter ({this.state.count})</Typography>
         {this.props.filter.map((item, index) => {
           return item.value.length > 0 ? (
             <Row key={index}>
               <Col name="col-s-2">
-                <Font variant="filter-item">
+                <Typography variant="filter-item">
                   {item.name}: {item.value}
-                </Font>
+                </Typography>
               </Col>
             </Row>
           ) : null;

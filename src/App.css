@@ -19,14 +19,12 @@
 
 .flex-true {
   display: flex;
-  width: 100%;
   align-items: center;
   justify-content: space-between;
 }
 
 .flex {
   display: flex;
-  width: 100%;
   align-items: center;
   justify-content: space-between;
 }
@@ -35,6 +33,9 @@
   display: block;
 }
 
+.pointer {
+  cursor: pointer;
+}
 /* TABLE */
 
 .table-wrapper {
@@ -49,36 +50,6 @@ table {
 
 td {
   padding: 0.8em 1.1em;
-}
-
-/* BOX */
-
-.spacing {
-  padding: 1.2em;
-  margin: 1em 0em 1em;
-}
-
-.box-none {
-  border: 0px;
-
-  height: 100%;
-  width: 100%;
-}
-
-.box-light {
-  border: 0.25px solid #cccccc;
-  border-radius: 3px;
-
-  height: 100%;
-  width: 100%;
-}
-
-.box-heavy {
-  border: 1px solid #cccccc;
-  border-radius: 3px;
-
-  height: 100%;
-  width: 100%;
 }
 
 /* BUTTON */

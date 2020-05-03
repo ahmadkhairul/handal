@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 
-import Font from "../components/typography";
+import Typography from "../components/typography";
 import Box from "../components/box";
 import Icon from "../components/icons";
 import { Col, Row } from "../components/container";
 import Animation from "../components/animation";
+import { Table, Tbody, Tr, Td } from "../components/table";
 
 class App extends Component {
   constructor(props) {
@@ -23,17 +24,16 @@ class App extends Component {
   render() {
     return (
       <>
-        <Font variant="list-detail">
+        <Typography variant="list-detail pointer" onClick={this.toggleAction}>
           Detail Pemesanan
           <Icon
-            onClick={this.toggleAction}
             src="./icons/direction3.svg"
             style={{
               margin: "0em 0em 0em 0.5em",
               transform: this.state.menu ? "rotate(180deg)" : ""
             }}
           />
-        </Font>
+        </Typography>
         {this.state.detail === true ? (
           <Animation name="animation-detail" duration="1s">
             <Col>
@@ -41,22 +41,30 @@ class App extends Component {
             </Col>
             <Row>
               <Col name="col-3 col-s-4">
-                <Font variant="list-label-2">Alamat Pengiriman</Font>
-                <Box variant="box-heavy flex spacing">
+                <Typography variant="list-label-2">
+                  Alamat Pengiriman
+                </Typography>
+                <Box Flex height="180px">
                   {this.props.data.senderDetail.map((item, index) => {
                     return (
                       <Row key={index}>
                         <Col name="col-8 col-s-4">
-                          <Font>{item.name}</Font>
+                          <Typography>{item.name}</Typography>
                         </Col>
                         <Col name="col-8 col-s-4">
-                          <Font variant="list-label-2">{item.email}</Font>
+                          <Typography variant="list-label-2">
+                            {item.email}
+                          </Typography>
                         </Col>
                         <Col name="col-8 col-s-4">
-                          <Font variant="list-label-2">{item.phone}</Font>
+                          <Typography variant="list-label-2">
+                            {item.phone}
+                          </Typography>
                         </Col>
                         <Col name="col-8 col-s-4">
-                          <Font variant="list-label-2">{item.address}</Font>
+                          <Typography variant="list-label-2">
+                            {item.address}
+                          </Typography>
                         </Col>
                       </Row>
                     );
@@ -64,45 +72,49 @@ class App extends Component {
                 </Box>
               </Col>
               <Col name="col-2 col-s-4">
-                <Font variant="list-label-2">Catatan</Font>
-                <Box variant="box-heavy flex spacing">
+                <Typography variant="list-label-2">Catatan</Typography>
+                <Box Flex height="180px">
                   <Row>
                     <Col name="col-8 col-s-4">
-                      <Font variant="list-label-2">{this.props.data.note}</Font>
+                      <Typography variant="list-label-2">
+                        {this.props.data.note}
+                      </Typography>
                     </Col>
                   </Row>
                 </Box>
               </Col>
               <Col name="col-3 col-s-4">
-                <Font variant="list-label-2">Total</Font>
-                <Box variant="box-heavy block spacing">
+                <Typography variant="list-label-2">Total</Typography>
+                <Box height="180px">
                   {this.props.data.total.map((item, index) => {
                     return (
                       <Row key={index}>
                         <Col name="col-8 col-s-4 flex-true">
-                          <Font variant="list-label-2">Jumlah</Font>
-                          <Font variant="list-label-2">
+                          <Typography variant="list-label-2">Jumlah</Typography>
+                          <Typography variant="list-label-2">
                             {item.amount},000 pc
-                          </Font>
+                          </Typography>
                         </Col>
                         <Col name="col-8 col-s-4 flex-true">
-                          <Font variant="list-label-2">Berat</Font>
-                          <Font variant="list-label-2">
+                          <Typography variant="list-label-2">Berat</Typography>
+                          <Typography variant="list-label-2">
                             {item.weight},000 kg
-                          </Font>
+                          </Typography>
                         </Col>
                         <Col name="col-8 col-s-4 flex-true">
-                          <Font variant="list-label-2">Volume</Font>
-                          <Font variant="list-label-2">
+                          <Typography variant="list-label-2">Volume</Typography>
+                          <Typography variant="list-label-2">
                             {item.volume},000 kg
-                          </Font>
+                          </Typography>
                         </Col>
                         <Col>
                           <hr style={{ border: "0.25px solid #CCCCCC" }} />
                         </Col>
                         <Col name="col-8 col-s-4 flex-true">
-                          <Font variant="list-label-2">Harga Kisaran</Font>
-                          <Font>IDR {item.price},000 </Font>
+                          <Typography variant="list-label-2">
+                            Harga Kisaran
+                          </Typography>
+                          <Typography>IDR {item.price},000 </Typography>
                         </Col>
                       </Row>
                     );
@@ -112,218 +124,215 @@ class App extends Component {
             </Row>
             <Row>
               <Col name="col-5 col-s-4">
-                <Font variant="list-label-2">Daftar Barang Pengiriman</Font>
+                <Typography variant="list-label-2">
+                  Daftar Barang Pengiriman
+                </Typography>
                 {this.props.data.itemList.map((item, index) => {
                   return (
-                    <div className="table-wrapper">
-                      <table>
-                        <tbody>
-                          <tr>
-                            <td
-                              rowSpan="4"
-                              style={{
-                                borderRight: "1px solid #cccccc",
-                                textAlign: "center",
-                                verticalAlign: "middle",
-                                width: "10%"
-                              }}
-                            >
-                              <Font variant="list-label-3">{index + 1}</Font>
-                            </td>
-                            <td colSpan="4">
-                              <Font variant="list-label-2">{item.name}</Font>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <Font variant="list-label-3">HS Code</Font>
-                            </td>
-                            <td>
-                              <Font variant="list-label-2">{item.HSCode}</Font>
-                            </td>
-                            <td>
-                              <Font variant="list-label-3">Jumlah</Font>
-                            </td>
-                            <td>
-                              <Font variant="list-label-2">{item.total}</Font>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <Font variant="list-label-3">Berat</Font>
-                            </td>
-                            <td>
-                              <Font variant="list-label-2">{item.weight}</Font>
-                            </td>
-                            <td>
-                              <Font variant="list-label-3">Harga Barang</Font>
-                            </td>
-                            <td>
-                              <Font variant="list-label-2">{item.price}</Font>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <Font variant="list-label-3">Volume</Font>
-                            </td>
-                            <td>
-                              <Font variant="list-label-2">{item.volume}</Font>
-                            </td>
-                            <td>
-                              <Font variant="list-label-3">Total Harga</Font>
-                            </td>
-                            <td>
-                              <Font variant="list-label-2">
-                                {item.totalPrice}
-                              </Font>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                    <Table>
+                      <Tbody>
+                        <Tr>
+                          <Td
+                            rowSpan="4"
+                            style={{
+                              borderRight: "1px solid #cccccc",
+                              textAlign: "center",
+                              verticalAlign: "middle",
+                              width: "10%"
+                            }}
+                            textStyle="list-label-3"
+                          >
+                            {index + 1}
+                          </Td>
+                          <Td colSpan="4" textStyle="list-label-2">
+                            {item.name}
+                          </Td>
+                        </Tr>
+                        <Tr>
+                          <Td textStyle="list-label-3">HS Code</Td>
+                          <Td textStyle="list-label-2">{item.HSCode}</Td>
+                          <Td textStyle="list-label-3">Jumlah</Td>
+                          <Td textStyle="list-label-2">{item.total}</Td>
+                        </Tr>
+                        <Tr>
+                          <Td textStyle="list-label-3">Berat</Td>
+                          <Td textStyle="list-label-2">{item.weight}</Td>
+                          <Td textStyle="list-label-3">Harga Barang</Td>
+                          <Td textStyle="list-label-2">{item.price}</Td>
+                        </Tr>
+                        <Tr>
+                          <Td textStyle="list-label-3">Volume</Td>
+                          <Td textStyle="list-label-2">{item.volume}</Td>
+                          <Td textStyle="list-label-3">Total Harga</Td>
+                          <Td textStyle="list-label-2">{item.totalPrice}</Td>
+                        </Tr>
+                      </Tbody>
+                    </Table>
                   );
                 })}
               </Col>
               <Col name="col-3 col-s-4">
                 <div className="flex-true">
-                  <Font variant="list-label-2">Dokumen Pribadi</Font>
-                  <Font variant="list-detail-2">Rincian Berkas</Font>
+                  <Typography variant="list-label-2">
+                    Dokumen Pribadi
+                  </Typography>
+                  <Typography variant="list-detail-2">
+                    Rincian Berkas
+                  </Typography>
                 </div>
-                <Box variant="box-heavy block spacing">
+                <Box>
                   {this.props.data.document.map((item, index) => {
                     return (
                       <Row key={index}>
                         <Col name="col-4 col-s-2 flex-true">
-                          <Font variant="list-label-2">SIUP</Font>
-                          <Font variant="list-label-2">
+                          <Typography variant="list-label-2">SIUP</Typography>
+                          <Typography variant="list-label-2">
                             {item.siup}
                             <Icon
                               src="./icons/doc.svg"
                               style={{ margin: "0em 0em 0em 0.5em" }}
                             />
-                          </Font>
+                          </Typography>
                         </Col>
                         <Col name="col-4 col-s-2 flex-true">
-                          <Font variant="list-label-2">NPWP</Font>
-                          <Font variant="list-label-2">
+                          <Typography variant="list-label-2">NPWP</Typography>
+                          <Typography variant="list-label-2">
                             {item.npwp}
                             <Icon
                               src="./icons/doc.svg"
                               style={{ margin: "0em 0em 0em 0.5em" }}
                             />
-                          </Font>
+                          </Typography>
                         </Col>
                         <Col name="col-4 col-s-2 flex-true">
-                          <Font variant="list-label-2">TDP</Font>
-                          <Font variant="list-label-2">
+                          <Typography variant="list-label-2">TDP</Typography>
+                          <Typography variant="list-label-2">
                             {item.tdp}
                             <Icon
                               src="./icons/doc.svg"
                               style={{ margin: "0em 0em 0em 0.5em" }}
                             />
-                          </Font>
+                          </Typography>
                         </Col>
                         <Col name="col-4 col-s-2 flex-true">
-                          <Font variant="list-label-2">KTP</Font>
-                          <Font variant="list-label-2">
+                          <Typography variant="list-label-2">KTP</Typography>
+                          <Typography variant="list-label-2">
                             {item.ktp}
                             <Icon
                               src="./icons/doc.svg"
                               style={{ margin: "0em 0em 0em 0.5em" }}
                             />
-                          </Font>
+                          </Typography>
                         </Col>
                         <Col name="col-4 col-s-2 flex-true">
-                          <Font variant="list-label-2">Passport</Font>
-                          <Font variant="list-label-2">
+                          <Typography variant="list-label-2">
+                            Passport
+                          </Typography>
+                          <Typography variant="list-label-2">
                             {item.passport}
                             <Icon
                               src="./icons/doc.svg"
                               style={{ margin: "0em 0em 0em 0.5em" }}
                             />
-                          </Font>
+                          </Typography>
                         </Col>
                         <Col name="col-4 col-s-2 flex-true">
-                          <Font variant="list-label-2">Lisensi</Font>
-                          <Font variant="list-label-2">
+                          <Typography variant="list-label-2">
+                            Lisensi
+                          </Typography>
+                          <Typography variant="list-label-2">
                             {item.lisence}
                             <Icon
                               src="./icons/doc.svg"
                               style={{ margin: "0em 0em 0em 0.5em" }}
                             />
-                          </Font>
+                          </Typography>
                         </Col>
                         <Col name="col-4 col-s-2 flex-true">
-                          <Font variant="list-label-2">NIK Import</Font>
-                          <Font variant="list-label-2">
+                          <Typography variant="list-label-2">
+                            NIK Import
+                          </Typography>
+                          <Typography variant="list-label-2">
                             {item.nikImport}
                             <Icon
                               src="./icons/doc.svg"
                               style={{ margin: "0em 0em 0em 0.5em" }}
                             />
-                          </Font>
+                          </Typography>
                         </Col>
                         <Col name="col-4 col-s-2 flex-true">
-                          <Font variant="list-label-2">Sertifikat</Font>
-                          <Font variant="list-label-2">
+                          <Typography variant="list-label-2">
+                            Sertifikat
+                          </Typography>
+                          <Typography variant="list-label-2">
                             {item.certificate}
                             <Icon
                               src="./icons/doc.svg"
                               style={{ margin: "0em 0em 0em 0.5em" }}
                             />
-                          </Font>
+                          </Typography>
                         </Col>
                         <Col name="col-4 col-s-2 flex-true">
-                          <Font variant="list-label-2">NIK Eksport</Font>
-                          <Font variant="list-label-2">
+                          <Typography variant="list-label-2">
+                            NIK Eksport
+                          </Typography>
+                          <Typography variant="list-label-2">
                             {item.nikExport}
                             <Icon
                               src="./icons/doc.svg"
                               style={{ margin: "0em 0em 0em 0.5em" }}
                             />
-                          </Font>
+                          </Typography>
                         </Col>
                         <Col name="col-4 col-s-2 flex-true">
-                          <Font variant="list-label-2">Others</Font>
-                          <Font variant="list-label-2">
+                          <Typography variant="list-label-2">Others</Typography>
+                          <Typography variant="list-label-2">
                             {item.others}
                             <Icon
                               src="./icons/doc.svg"
                               style={{ margin: "0em 0em 0em 0.5em" }}
                             />
-                          </Font>
+                          </Typography>
                         </Col>
                       </Row>
                     );
                   })}
                 </Box>
                 <div className="flex-true">
-                  <Font variant="list-label-2">Dokumen Pengiriman</Font>
-                  <Font variant="list-detail-2">Rincian Berkas</Font>
+                  <Typography variant="list-label-2">
+                    Dokumen Pengiriman
+                  </Typography>
+                  <Typography variant="list-detail-2">
+                    Rincian Berkas
+                  </Typography>
                 </div>
-                <Box variant="box-heavy block spacing">
+                <Box>
                   {this.props.data.document.map((item, index) => {
                     return (
                       <Row key={index}>
                         <Col name="col-4 col-s-2 flex-true">
-                          <Font variant="list-label-2">Daftar Invoice</Font>
-                          <Font variant="list-label-2">
+                          <Typography variant="list-label-2">
+                            Daftar Invoice
+                          </Typography>
+                          <Typography variant="list-label-2">
                             {item.invoice}
                             <Icon
                               src="./icons/doc.svg"
                               style={{ margin: "0em 0em 0em 0.5em" }}
                             />
-                          </Font>
+                          </Typography>
                         </Col>
                         <Col name="col-4 col-s-2 flex-true">
-                          <Font variant="list-label-2">Daftar Packing</Font>
-                          <Font variant="list-label-2">
+                          <Typography variant="list-label-2">
+                            Daftar Packing
+                          </Typography>
+                          <Typography variant="list-label-2">
                             {item.packing}
                             <Icon
                               src="./icons/doc.svg"
                               style={{ margin: "0em 0em 0em 0.5em" }}
                             />
-                          </Font>
+                          </Typography>
                         </Col>
                       </Row>
                     );

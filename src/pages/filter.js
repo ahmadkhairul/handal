@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import Font from "../components/typography";
+import Typography from "../components/typography";
 import Icon from "../components/icons";
 import Box from "../components/box";
 import Button from "../components/button";
@@ -123,25 +123,24 @@ class Filter extends Component {
       <>
         <Container>
           <div className="flex-true">
-            <Font variant="menu">Daftar Pemesanan</Font>
-            <Font variant="filter">
+            <Typography variant="menu">Daftar Pemesanan</Typography>
+            <Typography variant="filter pointer" onClick={this.toggleAction}>
               Filter
               <Icon
-                onClick={this.toggleAction}
                 src="./icons/direction.svg"
                 style={{
                   margin: "0em 0em 0em 0.5em",
                   transform: this.state.menu ? "rotate(180deg)" : ""
                 }}
               />
-            </Font>
+            </Typography>
           </div>
         </Container>
         {this.state.menu === true ? (
           <Animation name="menu-show" duration="1s">
             <Container>
               <form onSubmit={this.handleSubmit}>
-                <Box variant="box-heavy block spacing">
+                <Box>
                   <Row>
                     <Col name="col-2 col-s-4">
                       <Label>No. Pemesanan</Label>
@@ -265,7 +264,7 @@ class Filter extends Component {
         ) : (
           <Animation name="menu-hide" duration="1s">
             <Container>
-              <Box variant="box-heavy flex spacing">
+              <Box Flex>
                 <Filt filter={this.state.filter} />
                 <Icon
                   onClick={this.toggleAction}
